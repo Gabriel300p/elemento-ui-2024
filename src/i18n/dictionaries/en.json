@@ -1,0 +1,35 @@
+{
+  "title": "Elemento UI | Tailwind UI Kit and Style Guide",
+  "description": "Elemento UI is a user interface kit developed with the powerful Tailwind CSS framework. This kit offers a wide variety of user interface design elements to help create amazing websites. With Elemento UI, it's easy to create a cohesive and professional look in your web development projects. This kit also includes a complete style guide to help you understand how to apply Tailwind classes in your projects. Take advantage of the combined power of Elemento UI and Tailwind CSS to create beautiful, responsive, and modern websites that stand out in search engines. Try Elemento UI today and see the difference it can make in your projects.",
+  "form": {
+    "title": "Send us an email to receive an",
+    "titleHighlight": "exclusive discount coupon",
+    "titleEnd": "Don't waste time!",
+    "subtitle": "Be the first to know about our UI Kit in development! Sign up now and be the first to receive updates.",
+    "name": "Your name",
+    "email": "Your Email",
+    "howYouKnow": "How did you hear about Elemento UI?",
+    "message": "How can I help? (Optional)",
+    "howToHelp": "How can I help? (Optional)",
+    "submit": "Get your exclusive coupon",
+    "submitting": "Submitting...",
+    "success": "Contact sent successfully!",
+    "error": "An error occurred while sending the form."
+  },
+  "howYouKnowOptions": {
+    "indication": "Recommendation from a colleague",
+    "search": "Google search for UI Kits",
+    "social": "Social media post",
+    "templates": "Through our design templates for purchase",
+    "repository": "Found in a component repository",
+    "blog": "Discovery through a blog or development tutorial"
+  },
+  "howToHelpOptions": {
+    "components": "Intuitive and easy-to-use components",
+    "flexibility": "Flexibility to adapt to different designs and projects",
+    "documentation": "Clear and complete documentation",
+    "style": "Modern and elegant style",
+    "performance": "Great performance and low loading time",
+    "other": "Other (Tell us in the message field)"
+  }
+}
