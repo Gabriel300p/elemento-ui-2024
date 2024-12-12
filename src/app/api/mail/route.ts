@@ -4,6 +4,8 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   const contact = req.body;
+
+  console.log(contact);
   try {
     // Enviar e-mail
     const transporter = nodemailer.createTransport({
@@ -25,20 +27,11 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     };
     await transporter.sendMail(mailOptions);
 
-    // // Salvar dados no banco de dados
-    // await prisma.contact.create({
-    //   data: {
-    //     name: contact.name,
-    //     email: contact.email,
-    //     howYouKnow: contact.howYouKnow,
-    //     howToHelp: contact.howToHelp,
-    //     message: contact.message,
-    //   },
-    // });
-    console.log("Dados salvos no banco de dados");
-    res.status(200).json({ message: "E-mail enviado com sucesso!" });
+    return new Response(JSON.stringify("Dados salvos no banco de dados"), {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Ocorreu um erro ao enviar o e-mail" });
+    return new Response("Ocorreu um erro ao enviar o e-mail", { status: 500 });
   }
 }
