@@ -1,6 +1,11 @@
 {
   "title": "Elemento UI | Tailwind UI Kit and Style Guide",
   "description": "Elemento UI is a user interface kit developed with the powerful Tailwind CSS framework. This kit offers a wide variety of user interface design elements to help create amazing websites. With Elemento UI, it's easy to create a cohesive and professional look in your web development projects. This kit also includes a complete style guide to help you understand how to apply Tailwind classes in your projects. Take advantage of the combined power of Elemento UI and Tailwind CSS to create beautiful, responsive, and modern websites that stand out in search engines. Try Elemento UI today and see the difference it can make in your projects.",
+  "sidebar": {
+    "contact": "Contact us",
+    "paragraph": "Stay up to date with our latest news by following us on social media. If you need help, you can contact us!",
+    "phone": "Phone"
+  },
   "form": {
     "title": "Send us an email to receive an",
     "titleHighlight": "exclusive discount coupon",
@@ -8,6 +13,8 @@
     "subtitle": "Be the first to know about our UI Kit in development! Sign up now and be the first to receive updates.",
     "name": "Your name",
     "email": "Your Email",
+    "selectOption": "Select an option",
+    "messagePlaceholder": "Enter your message",
     "howYouKnow": "How did you hear about Elemento UI?",
     "message": "How can I help? (Optional)",
     "howToHelp": "How can I help? (Optional)",

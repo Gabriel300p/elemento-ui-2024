@@ -27,7 +27,7 @@ export default async function RootLayout({
       <ReactQueryProviders>
         <body className={`${inter.className} antialiased`}>
           <div className="flex flex-col md:flex-row">
-            <Sidebar />
+            <Sidebar lang={lang} />
             {children}
           </div>
           <Toaster />

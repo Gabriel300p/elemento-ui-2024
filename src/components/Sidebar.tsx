@@ -1,13 +1,28 @@
+"use client";
+
 import Mail from "@/assets/icons/mail.svg";
 import Phone from "@/assets/icons/phone.svg";
 import Logo from "@/assets/logo-text.svg";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { Locale } from "@/i18n/i18n-config";
+import { isDictionary } from "@/lib/utils";
+import { Dictionary } from "@/types/dictionary";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-interface SidebarProps {}
+export default function Sidebar({ lang }: { lang: Locale }) {
+  const [dict, setDict] = useState<Dictionary | null>(null);
 
-const Sidebar: FC<SidebarProps> = ({}) => {
+  useEffect(() => {
+    getDictionary(lang).then((dictionary) => {
+      if (isDictionary(dictionary)) {
+        setDict(dictionary);
+      }
+    });
+  }, [lang]);
+
+  if (!dict) return null;
   return (
     <div className="max-w-full md:max-w-[25%] p-5 md:p-8 bg-emerald-700 flex flex-col justify-between items-start">
       <div className=" flex-col items-start gap-9 flex">
@@ -18,11 +33,10 @@ const Sidebar: FC<SidebarProps> = ({}) => {
           </div>
           <div className="flex-col  gap-2 hidden md:flex">
             <h2 className=" text-white/90 text-2xl font-semibold">
-              Entre em contato!
+              {dict.sidebar.contact}
             </h2>
             <p className="text-white/60 text-lg font-normal">
-              Fique ligado sobre nossas novidades seguindo-nos nas redes
-              sociais. Caso precise, pode falar com a gente!
+              {dict.sidebar.paragraph}
             </p>
           </div>
         </div>
@@ -39,7 +53,9 @@ const Sidebar: FC<SidebarProps> = ({}) => {
           <div className="items-center gap-5 flex">
             <Image src={Phone} alt="Icon phone" />
             <div className="flex-col justify-start items-start gap-0.5 inline-flex">
-              <h3 className="text-white/60 text-lg font-normal">Telefone</h3>
+              <h3 className="text-white/60 text-lg font-normal">
+                {dict.sidebar.phone}
+              </h3>
               <span className="text-white text-xl font-medium">
                 +55 (11) 96580-0803
               </span>
@@ -69,6 +85,4 @@ const Sidebar: FC<SidebarProps> = ({}) => {
       </div>
     </div>
   );
-};
-
-export default Sidebar;
+}

@@ -28,6 +28,7 @@ import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
+import { isDictionary } from "@/lib/utils";
 import { Dictionary } from "@/types/dictionary";
 import { GiftIcon } from "lucide-react";
 import { contactFormSchema, ContactFormValues } from "./schema";
@@ -38,7 +39,6 @@ export default function ContactForm({ lang }: { lang: Locale }) {
 
   useEffect(() => {
     getDictionary(lang).then((dictionary) => {
-      // Type assertion after validation
       if (isDictionary(dictionary)) {
         setDict(dictionary);
       }
@@ -164,7 +164,7 @@ export default function ContactForm({ lang }: { lang: Locale }) {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione uma opção" />
+                        <SelectValue placeholder={dict.form.selectOption} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -190,7 +190,10 @@ export default function ContactForm({ lang }: { lang: Locale }) {
                 <FormItem>
                   <FormLabel>{dict.form.message}</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Digite sua mensagem" {...field} />
+                    <Textarea
+                      placeholder={dict.form.messagePlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -227,7 +230,7 @@ export default function ContactForm({ lang }: { lang: Locale }) {
                           }}
                         />
                       </FormControl>
-                      <FormLabel className="font-normal -pb-5">
+                      <FormLabel className="font-normal ">
                         {item.label}
                       </FormLabel>
                     </FormItem>
@@ -250,15 +253,5 @@ export default function ContactForm({ lang }: { lang: Locale }) {
         </form>
       </Form>
     </section>
-  );
-}
-
-function isDictionary(obj: any): obj is Dictionary {
-  return (
-    obj &&
-    typeof obj === "object" &&
-    "form" in obj &&
-    "howYouKnowOptions" in obj &&
-    "howToHelpOptions" in obj
   );
 }

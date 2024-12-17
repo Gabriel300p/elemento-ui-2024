@@ -1,6 +1,12 @@
 export type Dictionary = {
   title: string;
   description: string;
+  sidebar: {
+    contact: string;
+
+    paragraph: string;
+    phone: string;
+  };
   form: {
     title: string;
     titleHighlight: string;
@@ -8,8 +14,10 @@ export type Dictionary = {
     subtitle: string;
     name: string;
     email: string;
+    selectOption: string;
     howYouKnow: string;
     message: string;
+    messagePlaceholder: string;
     howToHelp: string;
     submit: string;
     submitting: string;
